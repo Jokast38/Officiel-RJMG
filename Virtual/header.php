@@ -23,7 +23,7 @@
 
   <body class="size-1280">
     <!-- PREMIUM FEATURES BUTTON -->
-  	<a target="_blank" class="hide-s" href="../template/virtua-premium-responsive-business-template/" style="position:fixed;bottom:120px;right:-6px;z-index:10;"><img src="img/chat1.png" alt=""></a>
+  	<a target="_blank" class="hide-s" href="message.php" style="position:fixed;bottom:120px;right:-6px;z-index:10;"><img src="img/chat1.png" alt=""></a>
     <!-- HEADER -->
     <header role="banner" class="position-absolute">    
       <!-- Top Navigation -->
@@ -47,7 +47,7 @@
               <img id="defuser" src="../Virtual/img/user.png" alt="">
             </button>
           </div></li>
-                <li><a href="indexh.php">Acceuil</a></li>
+                <li><a href="espace.php">Mon Espace</a></li>
                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Immobilier</a></li>
@@ -74,7 +74,7 @@
           
           <!-- logo -->
           <ul class="logo-menu">
-            <a href="../index.php" class="logo">
+            <a href="indexh.php" class="logo">
               <!-- Logo White Version -->
               <img class="logo-white" src="img/logo_rjmg.png" alt="">
               <!-- Logo Dark Version -->

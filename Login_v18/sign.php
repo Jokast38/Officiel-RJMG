@@ -12,12 +12,15 @@ if (isset($_POST['sign'])) {
     $pass2 = $_POST["pass2"];
     if($pass1 == $pass2){
 
-       $sql = "INSERT INTO `connexion`(`nom`, `prenom`, `adresse`, `mdp`, `mail`, `tel`) VALUES ('$nom', '$prenom', '$address', '$pass1', '$email', '$tel')";
+       $sql = "INSERT INTO connexion(nom, prenom, adresse, mdp, mail, tel) 
+              VALUES ('$nom', '$prenom', '$adress', '$pass1', '$email', '$tel')";
+              echo $sql;
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
         $_SESSION['prenom']=$prenom;
         echo "Bienvenue ".$prenom;
+        var_dump($_POST);
         header('Location: ../Virtual/indexh.php');
 
     }else{
@@ -54,7 +57,7 @@ if (isset($_POST['sign'])) {
 	</span>
 </header>
  
-<form class="login100-form " style="width: 65%; margin:auto;" method="post">
+<form class="login100-form " style="width: 65%; margin:auto;" method="post" action="">
 <div class="col-md-12 row">
    <div class="col-md-6"> 
     <label  for="prenom " class="form-label">Prenom</label>
@@ -108,8 +111,9 @@ if (isset($_POST['sign'])) {
       </label>
     </div>
   </div>
-  <div class="col-6" style="margin: auto;">
+  <div class="md-col-12" style="margin: auto;">
     <button name="sign" type="submit" class="btn btn-primary center"><a href="../../Virtual/indexh.php"></a> Sign in</button>
+    <br><br><a href="login.php">J'ai un compte</a>
   </div>
 </form>
 </body>
