@@ -1,3 +1,5 @@
+<?php require('../Login_v18/PDO.php')?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -21,7 +23,7 @@
 
   <body class="size-1280">
     <!-- PREMIUM FEATURES BUTTON -->
-  	<a target="_blank" class="hide-s" href="../template/virtua-premium-responsive-business-template/" style="position:fixed;top:120px;right:-14px;z-index:10;"><img src="img/premium-features.png" alt=""></a>
+  	<a target="_blank" class="hide-s" href="../template/virtua-premium-responsive-business-template/" style="position:fixed;bottom:120px;right:-6px;z-index:10;"><img src="img/chat1.png" alt=""></a>
     <!-- HEADER -->
     <header role="banner" class="position-absolute">    
       <!-- Top Navigation -->
@@ -45,8 +47,28 @@
               <img id="defuser" src="../Virtual/img/user.png" alt="">
             </button>
           </div></li>
-                <li><a href="about-us.html">Acceuil</a></li>
-                <li><a href="services.html">Recherche</a></li>
+                <li><a href="indexh.php">Acceuil</a></li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorie<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Immobilier</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Véhicules</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Vacances</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Emploi</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Mode</a></</li>
+                <li class="divider"></li>
+                <li><a href="#">Maison</a></</li>
+                <li class="divider"></li>
+                <li><a href="#">Multimédia</a></</li>
+                <li class="divider"></li>
+                <li><a href="#">Loisirs</a></</li>
+                <li class="divider"></li>
+                <li><a href="#">Matériels Professionel</a></</li>
+                <li class="divider"></li>
+                <li><a href="#">Autres</a></</li>
              </ul>
           </div>
           
@@ -63,9 +85,9 @@
           <!-- right menu items -->
           <div class="top-nav right-menu">
              <ul class="top-ul chevron">
-                <li><a href="gallery.html">Panier</a></li>
+                <li><a href="panier.php">Panier</a></li>
                 <li><a href="favoris.php">Favoris</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
              </ul> 
                 
           </div>
@@ -73,3 +95,7 @@
       </nav>
     </header>
     
+    <form class="form-wrapper cf">
+  	<input type="text" placeholder="Rechercher..." required>
+	  <button type="submit">Search</button>
+    </form>

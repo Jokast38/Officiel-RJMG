@@ -1,4 +1,37 @@
-<?php require 'sign.php'; ?>
+<?php //require 'sign.php'; ?>
+
+<?php
+session_start();
+require("PDO.php");
+if (isset($_POST['bout'])) {
+	//var_dump($_POST);
+    $pseudo = $_POST["mail"];
+    $pass = $_POST["mdp"];
+    $requete = "SELECT * FROM `connexion` WHERE mail='$pseudo'and mdp='$pass'";
+    $execute = $db->prepare($requete);
+
+    $execute->execute(array());
+	$row = $execute->fetch();
+	var_dump($row);
+    if ($execute->rowCount() > 0) {  
+
+		$_SESSION["prenom"]=$row["prenom"];
+		echo "C BON";
+		header('Location:../Virtual/indexh.php');
+			
+    }else{
+        $erreur = " Mot de passe ou email Oublié !!😒";
+		echo $erreur;
+        header('Location: login.php');
+
+    }
+   
+    
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +39,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+ <link rel="icon" type="image/png" href="../../Officiel RJMG/Virtual/img/fav/logo_rjmgf.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -33,21 +66,21 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
+				<form class="login100-form validate-form" method="post" action="">
 					<span class="login100-form-title p-b-43">
 						Login to continue
 					</span>
 					
-					
+		
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" id="email" type="text" name="email">
+						<input class="input100" id="mail" type="text" name="mail">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="mdp" id="mdp">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
@@ -69,9 +102,7 @@
 			
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
+							<input class="login100-form-btn" type="submit" id="bout" name="bout" value="Login">
 					</div>
 					
 					<div class="text-center p-t-46 p-b-20">

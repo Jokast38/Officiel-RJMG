@@ -7,16 +7,18 @@ if (isset($_POST['sign'])) {
     $nom = $_POST["name"];
     $adress = $_POST["add"] . " " . $_POST["add2"] . " " . $_POST["city"] . " " . $_POST["zip"];
     $email = $_POST["email2"];
-    $pass1 = $_POST["pass1"];
+    $tel = $_POST["tel"];
+    $pass1 = $_POST["pass"];
     $pass2 = $_POST["pass2"];
     if($pass1 == $pass2){
 
-       $sql = "INSERT INTO `connexion`(`nom`, `prenom`, `mail`, `mdp`, `address`) VALUES ('$nom', '$prenom', '$email', '$pass1', '$address')";
+       $sql = "INSERT INTO `connexion`(`nom`, `prenom`, `adresse`, `mdp`, `mail`, `tel`) VALUES ('$nom', '$prenom', '$address', '$pass1', '$email', '$tel')";
         $stmt = $db->prepare($sql);
         $stmt->execute();
+
+        $_SESSION['prenom']=$prenom;
         echo "Bienvenue ".$prenom;
-        $_SESSION["prenom"]=$prenom;
-        header('Location: ../../../Virtual/indexh.php');
+        header('Location: ../Virtual/indexh.php');
 
     }else{
         echo "Les mots de passe ne sont pas identique";
@@ -24,14 +26,16 @@ if (isset($_POST['sign'])) {
 }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="icon" type="image/png" href="../../Officiel RJMG/Virtual/img/fav/logo_rjmgf.png"/>
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">	
@@ -54,24 +58,31 @@ if (isset($_POST['sign'])) {
 <div class="col-md-12 row">
    <div class="col-md-6"> 
     <label  for="prenom " class="form-label">Prenom</label>
-    <input name="prenom" type="text" class="form-control" id="prenom">
+    <input name="prenom" type="text" class="form-control" id="prenom" required>
    </div>
    <div class="col-md-6">
     <label method="post" for="name" class="form-label">Nom</label>
     <input name="name" type="text" class="form-control" id="name">
    </div>
 </div>
+<div class="col-md-12 row">
+    <div class="col-md-6">
+      <label  for="email" class="form-label">Email</label>
+      <input name="email2" type="email" class="form-control" id="email">
+    </div>
+    <div class="col-md-6">
+      <label  for="tel" class="form-label">Tel</label>
+      <input name="tel" type="phone" class="form-control" id="tel">
+    </div>
+</div>
+  
   <div class="col-md-6">
-    <label  for="inputEmail4" class="form-label">Email</label>
-    <input name="email2" type="email" class="form-control" id="inputEmail4">
-  </div>
-  <div class="col-md-6">
-    <label for="pass1"  class="form-label">Password</label>
-    <input type="password" name="pass1" class="form-control" id="pass1">
+    <label for="pass"  class="form-label">Password</label>
+    <input type="password" name="pass" class="form-control" id="pass"  required>
   </div>
   <div class="col-md-6">
     <label for="pass2" class="form-label">Confirmez Password</label>
-    <input type="password" name="pass2" class="form-control" id="pass2">
+    <input type="password" name="pass2" class="form-control" id="pass2"  required>
   </div>
   <div class="col-12">
     <label for="add" class="form-label">Address</label>
@@ -98,7 +109,7 @@ if (isset($_POST['sign'])) {
     </div>
   </div>
   <div class="col-6" style="margin: auto;">
-    <button name="sign" type="submit" class="btn btn-primary center">Sign in</button>
+    <button name="sign" type="submit" class="btn btn-primary center"><a href="../../Virtual/indexh.php"></a> Sign in</button>
   </div>
 </form>
 </body>

@@ -1,19 +1,14 @@
 
 <?php
+session_start();
 require('header.php');
 ?>
 
-    
-<?php
-session_start();
-
-echo '<!-- MAIN -->
-<main role="main">    
- 
-<h1> Bienvenue '.$_SESSION["prenom"].' </h1>
-
- </main>'
-?>
-
+<main>
+  <h1 id="welcome" style="color: whitesmoke !important; text-align:center;">Bienvenue 
+  <?php 
+  echo $_SESSION['prenom'];
+  ?></h1>
+</main>
 
 <?php require('footer.php');?>

@@ -1541,7 +1541,6 @@ hr.break.background-dark, .primary-color-dark hr.break.background-primary {
 }
 
 header.position-absolute {
-  position: absolute;
   top: 0;
   width: 100%;
   z-index: 10;
